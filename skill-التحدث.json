@@ -1,0 +1,293 @@
+{
+  "intents": [
+    {
+      "intent": "اسئلة",
+      "examples": [
+        {
+          "text": "لدي استفسار هل تستطيع ان تتجاوب معي ؟"
+        },
+        {
+          "text": "لدي سؤال"
+        },
+        {
+          "text": "لدي سوال"
+        },
+        {
+          "text": "هل تستطيع ان تتجاوب معي"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "اسئلهغ",
+      "examples": [
+        {
+          "text": "اتحداك مين انا ؟"
+        },
+        {
+          "text": "هل تعرفني ؟"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "الاجابة",
+      "examples": [
+        {
+          "text": "كم لديك اتجاه ؟"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "الاجابهه",
+      "examples": [
+        {
+          "text": "هل يمكنك ان تعددهم لي ؟"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "الوداع",
+      "examples": [
+        {
+          "text": "الى اللقاء"
+        },
+        {
+          "text": "باي"
+        },
+        {
+          "text": "تصبح على خير"
+        },
+        {
+          "text": "مع السلامه"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "ترحيب",
+      "examples": [
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "صباح الخير"
+        },
+        {
+          "text": "صباح النور"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "هلا والله"
+        },
+        {
+          "text": "هيلو"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "الاجابهه",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " LEFT , RIGHT , STOP , BACKWARD , FORWARD:نعم استطيع "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#الاجابهه",
+      "dialog_node": "node_10_1626041417335",
+      "previous_sibling": "node_7_1626041627907"
+    },
+    {
+      "type": "standard",
+      "title": "الوداع",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "الى اللقاء , اراك في وقتا لاحق "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#الوداع",
+      "dialog_node": "node_10_1626041765787",
+      "previous_sibling": "مرحبا"
+    },
+    {
+      "type": "standard",
+      "title": "ترحيب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "ياهلا تفضل "
+              },
+              {
+                "text": "مرحبا "
+              },
+              {
+                "text": "وعليكم السلام"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#ترحيب",
+      "dialog_node": "node_1_1626040536751",
+      "previous_sibling": "node_8_1626040934421"
+    },
+    {
+      "type": "standard",
+      "title": "الاجابة",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لدي 4 اتجاهات 5 زر ايقاف "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#الاجابة",
+      "dialog_node": "node_6_1626041269035",
+      "previous_sibling": "node_10_1626041417335"
+    },
+    {
+      "type": "standard",
+      "title": "اسئلهغ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم استطع معرفتك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#اسئلهغ",
+      "dialog_node": "node_7_1626041627907",
+      "previous_sibling": "node_10_1626041765787"
+    },
+    {
+      "type": "standard",
+      "title": "اسئلة",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "بالطبع تفضل , هل يمكنني مساعدتك؟ "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#اسئلة",
+      "dialog_node": "node_8_1626040934421",
+      "previous_sibling": "node_6_1626041269035"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_1_1626040536751",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "مرحبا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "ياهلا"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "مرحبا"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "التحدث",
+  "language": "ar",
+  "description": ""
+}
